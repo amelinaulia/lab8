@@ -22,7 +22,7 @@ printf("\nПроизведение 1.1 * 1.2 * 1.3 * ... * 1.%d = %f\n", N, a);
 5. Конец
 ### Блок-схема
 
-<img width="200" src="https://github.com/amelinaulia/lab6/blob/master/Диаграмма%20без%20названия.drawio.png">
+![Блок схема алгоритма](lab8.drawio.png)
 
 ## 2. Реализация программы:
    #define _CRT_SECURE_NO_WARNINGS
