@@ -1,55 +1,58 @@
 # Домашнее задание к работе 8
 ## Условие задачи
- Calculate min(x^2 +y^2; y^3-2*x^2)-4, where x, y - input variable.
+Вычислите для целого N, заданного пользователем, значение
+произведения 1.1*1,2*1,3*..*l,N
+
 ## 1. Алгоритм и блок-схема
 ### Алгоритм
 1. Начало
 2. Объявить константы:
-   - x = переменная.
-   - y = переменная.
-   - s1 = расчёт 1 выражения.
-   - s1 = расчёт 2 выражения.
+   - N = переменная.
    - a = расчёт.
+   - b = расчёт.
+   - i = счётчик.
 3. Считаем:
-  s1 = x * x + y * y;
-  s2 = y * y * y - 2 * x * x;
-  a = (s1 < s2) ? s1 : s2;
-  a -= 4;
+ for (int i = 1; i <= N; i++) {
+    double b = 1.0 + i / 10.0; 
+    a *= b;
+    printf("1.%d = %.1f\n", i, b);
+}
 4. Выводим результаты расчетов:
-   -  printf("Результат: %.6f\n", a);
-      printf("Где x = %.2f, y = %.2f\n", x, y);
-      printf("1 Варажение: %.2f\n", s1);
-      printf("2 Варажение: %.2f\n", s2);
-
+printf("\nПроизведение 1.1 * 1.2 * 1.3 * ... * 1.%d = %f\n", N, a);
 5. Конец
 ### Блок-схема
 
 <img width="200" src="https://github.com/amelinaulia/lab6/blob/master/Диаграмма%20без%20названия.drawio.png">
 
 ## 2. Реализация программы:
- #define _CRT_SECURE_NO_WARNINGS
- #include <stdio.h>
- #include <locale.h>
- #include <math.h>
- 
- int main() {
-     setlocale(LC_CTYPE, "RUS");
-     double x, y, a;
-     printf("Введите x: ");
-     scanf("%lf", &x);
-     printf("Введите y: ");
-     scanf("%lf", &y);
-     double s1 = x * x + y * y;
-     double s2 = y * y * y - 2 * x * x;
-     a = (s1 < s2) ? s1 : s2;
-     a -= 4;
-     printf("Результат: %.6f\n", a);
-     printf("Где x = %.2f, y = %.2f\n", x, y);
-     printf("1 Варажение: %.2f\n", s1);
-     printf("2 Варажение: %.2f\n", s2);
- 
-     return 0;
- }
+   #define _CRT_SECURE_NO_WARNINGS
+   #include <stdio.h>
+   #include <locale.h>
+   #include <math.h>
+   int main()
+   {
+       setlocale(LC_CTYPE, "RUS");
+   
+       int N;
+       double a = 1.0; 
+   
+       printf("Введите целое число N (N > 0): ");
+       scanf("%d", &N);
+   
+       if (N <= 0) {
+           printf("N должно быть положительным числом!\n");
+           return 1;
+       }
+        for (int i = 1; i <= N; i++) {
+           double b = 1.0 + i / 10.0; 
+           a *= b;
+           printf("1.%d = %.1f\n", i, b);
+       }
+   
+       printf("\nПроизведение 1.1 * 1.2 * 1.3 * ... * 1.%d = %f\n", N, a);
+   
+       return 0;
+   }
 ## 3. Результат работы программы
 ![Результат работы программы](image.png)
 ## 4. Информация о разработчике
